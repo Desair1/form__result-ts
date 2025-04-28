@@ -40,6 +40,7 @@ export default function App() {
 			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 				{errors.email && <div>{errors.email.message}</div>}
 				<input
+					placeholder="Введите email"
 					{...register("email", {
 						required: "Это поле обязательно для заполнения",
 						pattern: {
@@ -51,9 +52,14 @@ export default function App() {
 				/>
 				{errors.password && <div>{errors.password.message}</div>}
 
-				<input {...register("password", passwordValidation)} type="password" />
+				<input
+					placeholder="Введите пароль"
+					{...register("password", passwordValidation)}
+					type="password"
+				/>
 				{errors.confirmedPass && <div>{errors.confirmedPass.message}</div>}
 				<input
+					placeholder="Повторите пароль"
 					{...register("confirmedPass", {
 						required: "Это поле обязтельно для заполнения",
 						validate: (value: string): string | boolean => {
